@@ -1,0 +1,43 @@
+{
+    "articles": [
+        {
+            "slug": "Hansi-legt-vor!2025-03-25T15:26:25.839Z-23315",
+            "title": "Hansi legt vor!2025-03-25T15:26:25.839Z",
+            "description": "Über den Hansi und wie er die Welt verändert",
+            "body": "Nun ist es soweit. Der Hansi hat genug. Er nimmt es nun selbst in die Hand.",
+            "tagList": [
+                "Hansi Welt"
+            ],
+            "createdAt": "2025-03-25T15:26:28.885Z",
+            "updatedAt": "2025-03-25T15:26:28.885Z",
+            "favorited": false,
+            "favoritesCount": 1,
+            "author": {
+                "username": "hansi",
+                "bio": null,
+                "image": "https://conduit-api.bondaracademy.com/images/smiley-cyrus.jpeg",
+                "following": false
+            }
+        },
+        {
+            "slug": "Willi-legt-vor!2025-03-25T15:26:25.840Z-23315",
+            "title": "Willi legt vor!2025-03-25T15:26:25.840Z",
+            "description": "Über den Willi und wie er die Welt verändert",
+            "body": "Nun ist es soweit. Der Willi hat genug. Er nimmt es nun selbst in die Hand.",
+            "tagList": [
+                "Willi Welt"
+            ],
+            "createdAt": "2025-03-25T15:26:28.890Z",
+            "updatedAt": "2025-03-25T15:26:28.890Z",
+            "favorited": false,
+            "favoritesCount": 5,
+            "author": {
+                "username": "hansi",
+                "bio": null,
+                "image": "https://conduit-api.bondaracademy.com/images/smiley-cyrus.jpeg",
+                "following": false
+            }
+        }
+    ],
+    "articlesCount": 2
+}
