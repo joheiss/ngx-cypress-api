@@ -3,7 +3,7 @@ export class Login {
     
     loginHeadLessly(email, password) {
         const creds = { user: { email: email, password: password } };
-        cy.request("POST", "https://conduit-api.bondaracademy.com/api/users/login", creds)
+        cy.request("POST", `${Cypress.env("apiUrl")}/users/login`, creds)
         .its("body").then(body => {
             const token = body.user.token;
             cy.wrap(token).as("authToken");
@@ -15,9 +15,15 @@ export class Login {
         });
     }
 
+    logout() {
+        cy.contains("Settings").click();
+        cy.contains("Or click here to logout").click();
+        cy.get(".navbar-nav").should("contain","Sign up");
+    }
+
     getAuthToken(email, password) {
         const creds = { user: { email: email, password: password } };
-        cy.request("POST", "https://conduit-api.bondaracademy.com/api/users/login", creds)
+        cy.request("POST", `${Cypress.env("apiUrl")}/users/login`, creds)
         .its("body").then(body => {
             const token = body.user.token;
             cy.wrap(token).as("authToken");

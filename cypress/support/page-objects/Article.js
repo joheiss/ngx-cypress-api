@@ -16,7 +16,7 @@ export class Article {
         cy.get("@authToken").then(token => {
             cy.request({
                 method: "DELETE",
-                url: "https://conduit-api.bondaracademy.com/api/articles/" + slug,
+                url: `${Cypress.env("apiUrl")}/articles/` + slug,
                 headers: { "Authorization": "Token " + token }
             }).then(res => {
                 expect(res.status).equal(204);

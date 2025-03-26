@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="14.685" tests="6" failures="0">
+  <testsuite name="Root Suite" timestamp="2025-03-26T13:42:55" tests="0" file="cypress/e2e/client.spec.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="API Testing" timestamp="2025-03-26T13:42:55" tests="6" time="14.680" failures="0">
+    <testcase name="API Testing should send a correct request and receive a correct response" time="6.274" classname="should send a correct request and receive a correct response">
+    </testcase>
+    <testcase name="API Testing should intercept and modify the request and receive a correct response" time="3.940" classname="should intercept and modify the request and receive a correct response">
+    </testcase>
+    <testcase name="API Testing should display popular tags" time="1.065" classname="should display popular tags">
+    </testcase>
+    <testcase name="API Testing should properly display global feeds &apos;like&apos; count" time="1.075" classname="should properly display global feeds &apos;like&apos; count">
+    </testcase>
+    <testcase name="API Testing should properly increase global feeds &apos;like&apos; count" time="1.025" classname="should properly increase global feeds &apos;like&apos; count">
+    </testcase>
+    <testcase name="API Testing should login and delete an article using cy.request" time="1.163" classname="should login and delete an article using cy.request">
+    </testcase>
+  </testsuite>
+</testsuites>

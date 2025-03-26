@@ -9,12 +9,12 @@ describe('API Testing', () => {
     // });
     cy.intercept({ method: "GET", path: "tags" }, { fixture: "tags.json" }).as("getTags");
     // cy.login("hansi@horsti.de", "Hansi123");
-    login.loginHeadLessly("hansi@horsti.de", "Hansi123");
+    login.loginHeadLessly(Cypress.env("username"), Cypress.env("password"));
   });
 
   it('should send a correct request and receive a correct response', () => {
     cy.log("Login worked!");
-    cy.intercept("POST", "https://conduit-api.bondaracademy.com/api/articles/").as("postArticle");
+    cy.intercept("POST", `${Cypress.env("apiUrl")}/articles/`).as("postArticle");
     
     const newArticle = {
       "title": "Hansi legt vor!" + new Date().toISOString(),
@@ -79,8 +79,8 @@ describe('API Testing', () => {
       "articlesCount": 0
     };
 
-    cy.intercept("GET", "https://conduit-api.bondaracademy.com/api/articles/feed?limit=10&offset=0", yourFeed);
-    cy.intercept("GET", "https://conduit-api.bondaracademy.com/api/articles?limit=10&offset=0", {
+    cy.intercept("GET", `${Cypress.env("apiUrl")}/articles/feed?limit=10&offset=0`, yourFeed);
+    cy.intercept("GET", `${Cypress.env("apiUrl")}/articles?limit=10&offset=0`, {
       fixture: "globalFeed.json"
     });
 
@@ -107,14 +107,14 @@ describe('API Testing', () => {
       "articlesCount": 0
     };
 
-    cy.intercept("GET", "https://conduit-api.bondaracademy.com/api/articles/feed?limit=10&offset=0", yourFeed);
-    cy.intercept("GET", "https://conduit-api.bondaracademy.com/api/articles?limit=10&offset=0", {
+    cy.intercept("GET", `${Cypress.env("apiUrl")}/articles/feed?limit=10&offset=0`, yourFeed);
+    cy.intercept("GET", `${Cypress.env("apiUrl")}/articles?limit=10&offset=0`, {
       fixture: "globalFeed.json"
     });
 
     cy.fixture("globalFeed.json").then(feed => {
       const slugId = feed.articles[1].slug;
-      const url = `https://conduit-api.bondaracademy.com/api/articles/${slugId}/favorite`;
+      const url = `${Cypress.env("apiUrl")}/articles/${slugId}/favorite`;
       const favoritesCount = feed.articles[1].favoritesCount + 1;
       feed.articles[1].favoritesCount = favoritesCount;
       cy.intercept("POST", url, feed).as("postFavorite");
@@ -125,8 +125,15 @@ describe('API Testing', () => {
     
   });
 
-  it("should login and delete an article using cy.request", () => {
-    login.getAuthToken("hansi@horsti.de", "Hansi123");
+  it("should login and delete an article using cy.request", { browser: "!edge" }, () => {
+    login.getAuthToken(Cypress.env("username"), Cypress.env("password"));
+    cy.get("@authToken").then(token => {
+
+    });
+  });
+
+  it("should login and delete an article using cy.request - in CHROME ONLY", { browser: "chrome" }, () => {
+    login.getAuthToken(Cypress.env("username"), Cypress.env("password"));
     cy.get("@authToken").then(token => {
 
     });
